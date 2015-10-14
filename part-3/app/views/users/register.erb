@@ -1,0 +1,18 @@
+<% if !@user.errors.empty? %>
+  <h4 class="center block mar-b-2">Looks like that didn't work for the following reasons. Let's try again.</h4>
+  <ul>
+  <% @user.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<h1 class="center block mar-b-2">Create an Account</h1>
+<form class="center block" method="post" action="/user" >
+  <label class="block center" for="username">Username:</label>
+  <input class="c-dk-blue" type="text" name="new_user[username]" placeholder="Type your username here..." size="35">
+  <label class="block center" for="password">Password:</label>
+  <input class="c-dk-blue" type="password" name="password" placeholder="Type your password here..." size="35"><br>
+  <br>
+  <input class="c-dk-blue block left" type="submit" value="submit">
+</form>

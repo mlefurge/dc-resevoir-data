@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
+  <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
@@ -15,9 +15,27 @@
   <script src="/js/jquery.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>Blind Auction Site</title>
 </head>
 <body>
+   <header class="mar-t-5 pad-t-2 pad-b-4 pad-s-1 wrap-float bg-white">
+    <div class="max-w-700 center wrap-float">
+      <nav class="clearfix mar-b-1">
+        <ul class="no-bullets no-margin no-padding right">
+            <% if logged_in? %>
+            <li class="pipe-separate left"><a href="/users/<%= current_user_id%>"><%= current_user_name%></a></li>
+            <li class="pipe-separate left"><a href="/users/logout">logout</a></li>
+          <% else %>
+            <li class="pipe-separate left"><a href="/users/new">register</a></li>
+            <li class="pipe-separate left"><a href="/users/login">login</a></li>
+          <% end %>
+          <li class="pipe-separate left"><a href="/">home</a></li>
+        </ul>
+      <h1>Blind Auction Site</h1>
+      </nav>
+
+    </div>
+  </header>
   <%= yield %>
 </body>
 </html>
