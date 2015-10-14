@@ -14,10 +14,12 @@ $(document).ready(function() {
 
         $.ajax({
           type: "POST",
-          url: '/posts',
+          url: '/posts/new',
           data: $("#post_form").serialize()
         }).done(function(result){
-          // $("#sidebar").hide($("#post_form_container"));
+          console.log(result)
+          $("#posts").prepend(result)
+          $("#post_form").remove();
           $("#new_post_link").show();
         })
       });
