@@ -16,7 +16,14 @@ get "/posts/new" do
   erb :'posts/new'
 end
 
+get "/posts/form" do
+  @post = Post.new
+  erb :'posts/new', { layout: false, locals: { post: @post } }
+end
+
 get "/posts/:id" do
   @post = Post.find(params[:id])
   erb :'posts/show'
 end
+
+
