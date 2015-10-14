@@ -4,6 +4,7 @@ class CreateItems < ActiveRecord::Migration
       t.string :title, { null: false, index: true }
       t.string :condition, { null: false }
       t.string :description, { null: false }
+      t.integer :creator_id, { null: false }
 
       t.timestamps(null: false)
     end

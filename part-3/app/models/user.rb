@@ -2,9 +2,8 @@ class User < ActiveRecord::Base
   validates :username, :password_hash, { presence: true }
   validates :username, uniqueness: true
   validates :password_hash, length: { minimum: 6 }
-  has_many :items
   has_many :bids
-  has_many :items, through: :bids
+  has_many :items, foreign_key: :creator_id
 
   # users.password_hash in the database is a :string
   include BCrypt
