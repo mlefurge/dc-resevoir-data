@@ -4,10 +4,9 @@ var Student = function(firstName, scores){
 }
 
 Student.prototype.averageScore = function(){
-  var sum = 0;
-  for(var i = 0; i < this.scores.length; i++){
-    sum += this.scores[i]
-  };
+  var sum = this.scores.reduce(function(firstVal, secondVal){
+    return firstVal + secondVal;
+  });
   return Math.floor(sum/this.scores.length)
 }
 

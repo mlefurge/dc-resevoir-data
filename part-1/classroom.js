@@ -3,23 +3,24 @@ var Classroom = function(students){
 }
 
 Classroom.prototype.find = function(name){
+  var result;
+  this.students.forEach(function(student){
+    if (student.firstName === name){
+      result = student;
+    }
+  })
 
-  var students = this.students
-  for (var i = 0; i < students.length; i++){
-    if (students[i].firstName === name){
-      return students[i];
-    };
-  };
+  return result;
+
 };
 
 Classroom.prototype.honorRollStudents = function(){
-  var honorRoll = [];
-  var students = this.students;
-  for (var i = 0; i < students.length; i++){
-    if (students[i].averageScore()>=95){
-      honorRoll.push(students[i]);
-    };
-  };
-  return honorRoll;
+
+  var filtered = this.students.filter(function(student){
+    if (student.averageScore() >= 95)
+      return true;
+  });
+
+  return filtered
 };
 
